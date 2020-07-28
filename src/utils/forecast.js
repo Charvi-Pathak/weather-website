@@ -13,10 +13,10 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('Incorrect coordinates', undefined);
         } else {
-            const { weather_descriptions, temperature, feelslike } = body.current;
+            const { weather_descriptions, temperature, feelslike, humidity, visibility } = body.current;
             const result = weather_descriptions[0] + '. It is currently '
                 + temperature + ' degrees out. It feels like '
-                + feelslike + ' degrees.';
+                + feelslike + ' degrees. Humidity is ' + humidity + '% and Visibility index is ' + visibility + '.';
             callback(undefined, result);
         }
     });
